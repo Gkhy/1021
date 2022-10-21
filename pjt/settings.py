@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     "accounts",
     "reviews",
     "django_bootstrap5",
+    'django_extensions',
+    'imagekit',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -121,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+# Media files (user uploaded filed)
+
+MEDIA_ROOT = BASE_DIR / 'images'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
