@@ -5,8 +5,8 @@ from ..forms import CommentForm
 # Create your views here.
 
 
-def detail(request, reviews_pk):
-    review = Reviews.objects.get(pk=reviews_pk)
+def detail(request, pk):
+    review = Reviews.objects.get(pk=pk)
     comment_form = CommentForm()
     context ={
         'review': review,

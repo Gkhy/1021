@@ -11,6 +11,6 @@ class ReviewForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
 
     class Meta:
-        reviews/create_update
+
         model = Comment 
         fields = ['content',]
