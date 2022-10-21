@@ -18,5 +18,6 @@ def detail(request, pk):
 @login_required
 def delete(request, pk):
     review = Reviews.objects.get(pk=pk)
-    review.delete()
+    if request.user == review.user:
+        review.delete()
     return redirect('reviews:index')

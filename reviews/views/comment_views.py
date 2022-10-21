@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from ..models import Reviews,Comment
@@ -14,7 +15,9 @@ def comment_create(request, pk):
     return redirect('reviews:detail', review.pk)
 
 def comments_delete(request, pk, comment_pk):
-
     comment = Comment.objects.get(pk=comment_pk)
-    comment.delete()
+    if  request.user == comment.user: 
+        comment.delete()
+    else:
+        messages.error(request,'삭제안대!!')
     return redirect('reviews:detail', pk)
