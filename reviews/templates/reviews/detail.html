@@ -23,7 +23,7 @@
 {% for comment in comments %}
     <span>{{ comment.content }}</span>
     <span></span>
-    <a href="{% url 'reviews:delete' review.review_pk comment.comment_pk %}" class="btn btn-outline-danger my-3">삭제</a>
+    <a href="{% url 'reviews:comments_delete' review.pk comment.pk %}" class="btn btn-outline-danger my-3">삭제</a>
     <hr>    
 {% empty %}
     <p>댓글이 없어요 ㅠ_ㅠ</p>

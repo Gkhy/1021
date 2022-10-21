@@ -3,9 +3,8 @@ from ..models import Reviews
 from django.shortcuts import render, redirect
 from ..forms import CommentForm
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
-
-
 def detail(request, pk):
     review = Reviews.objects.get(pk=pk)
     comment_form = CommentForm()

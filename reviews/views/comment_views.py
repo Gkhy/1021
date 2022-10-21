@@ -1,7 +1,6 @@
-from xml.etree.ElementTree import Comment
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from ..models import Reviews
+from ..models import Reviews,Comment
 from ..forms import ReviewForm, CommentForm
 
 def comment_create(request, pk):
@@ -15,6 +14,7 @@ def comment_create(request, pk):
     return redirect('reviews:detail', review.pk)
 
 def comments_delete(request, pk, comment_pk):
+
     comment = Comment.objects.get(pk=comment_pk)
     comment.delete()
     return redirect('reviews:detail', pk)
