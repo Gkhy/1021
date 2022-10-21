@@ -21,13 +21,18 @@
 </form>
 <hr>
 {% for comment in comments %}
-    <span>{{ comment.content }}</span>
-    <span></span>
-    <a href="{% url 'reviews:comments_delete' review.pk comment.pk %}" class="btn btn-outline-danger my-3">삭제</a>
-    <hr>    
+<div>
+    <ul class="d-flex justify-content-between">
+        <li>{{comment.user}}&nbsp|&nbsp{{ comment.content }}
+        </li>
+        <a href="{% url 'reviews:comments_delete' review.pk comment.pk %}" class="btn btn-outline-danger my-3">삭제</a>
+    </ul>
+</div>
+
+<hr>
 {% empty %}
-    <p>댓글이 없어요 ㅠ_ㅠ</p>
+<p>댓글이 없어요 ㅠ_ㅠ</p>
 {% endfor %}
 
 <hr>
-{% endblock  %}
+{% endblock %}
